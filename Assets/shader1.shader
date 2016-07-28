@@ -4,13 +4,21 @@ Shader "ShaderProg/foo" {
 		_MainTex ("Texture", 2D) = "white" {}
 	}
 
+	
+	// Subshader { [Tags] [CommonState] Passdef [Passdef ...] }
+	
 	SubShader {
 	
-	Tags {"Queue" = "Transparent" }
+	
+	Tags { 
+		"Queue" = "Transparent+1" 
+		"DisableBatching" = "True"
+		}
+	Blend SrcAlpha OneMinusSrcAlpha
 	
 	Pass {
 		
-		Blend SrcAlpha OneMinusSrcAlpha
+		
 		
 		
 			
